@@ -19,9 +19,9 @@ async def on_ready():
     print('------')
 
 @bot.command()
-async def add(ctx, left):
-    """Adds two numbers together."""
-    await ctx.send(left)
+async def source(ctx):
+    await ctx.send("Source can be found @ https://github.com/claythearc/Simcraft-Bot/blob/master/venv/simbot.py")
+    await ctx.send("Written by Clay The Arc#4649 for bugs / problems.")
 
 
 @bot.command()
@@ -39,13 +39,17 @@ async def simc(ctx, *, username: str):
         "Rogue" : (255, 245, 105),
         "Shaman" : (0, 112, 222),
         "Warlock" : (135, 135, 237),
-        "Warrior" : (199, 156, 110)
+        "Warrior" : (199, 156, 110),
+        "Demonhunter" : (163, 48, 201)
     }
 
-    subprocess.call(f"C:\\Simulationcraft(x64)\\801-01\\simc.exe armory=us,thrall,{username} html={username}.html iterations=10 calculate_scale_factors=1")
-    with open(f"{username}.html", encoding='utf-8') as file:
-        soup = BeautifulSoup(file, 'html.parser')
-
+    Output = subprocess.call(f"C:\\Simulationcraft(x64)\\801-01\\simc.exe armory=us,thrall,{username} html={username}.html iterations=10 calculate_scale_factors=1")
+    try:
+        with open(f"{username}.html", encoding='utf-8') as file:
+            soup = BeautifulSoup(file, 'html.parser')
+    except FileNotFoundError:
+        await ctx.send("Healing / Tanking is not currently supported.")
+        return 0 
     stats = dict()
     dps = soup.find(id='player1').find("td").get_text()
     img = soup.find(id='player1').find("img")['src']
