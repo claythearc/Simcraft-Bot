@@ -44,7 +44,7 @@ async def simc(ctx, *, username: str):
     }
 
     Output = subprocess.call(["/root/sim2/engine/simc", f"armory=us,thrall,{username}", f"html={username}.html",
-                              "iterations=10", "calculate_scale_factors=1"])
+                              "iterations=1000", "calculate_scale_factors=1"])
     try:
         with open(f"{username}.html", encoding='utf-8') as file:
             soup = BeautifulSoup(file, 'html.parser')
