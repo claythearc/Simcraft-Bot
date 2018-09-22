@@ -26,6 +26,7 @@ async def source(ctx):
 
 @bot.command()
 async def simc(ctx, *, username: str):
+    await ctx.send(f"Beginning Simulation now for: {username}")
     print("Called")
     ABIL_NAMES = []
     CLASS_COLORS = {
