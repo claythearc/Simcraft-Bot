@@ -43,7 +43,7 @@ async def simc(ctx, *, username: str):
         "Demonhunter" : (163, 48, 201)
     }
 
-    Output = subprocess.call(["~/sim2/engine/simc", f"armory=us,thrall,{username}", "html={username}.html",
+    Output = subprocess.call(["/root/sim2/engine/simc", f"armory=us,thrall,{username}", "html={username}.html",
                               "iterations=10", "calculate_scale_factors=1"])
     try:
         with open(f"{username}.html", encoding='utf-8') as file:
