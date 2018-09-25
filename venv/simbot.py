@@ -31,7 +31,7 @@ async def simc(ctx, *, username: str):
     ABIL_NAMES = []
     CLASS_COLORS = {
         "Monk" : (0, 255, 150),
-        "Death Knight" : (196, 31, 59),
+        "Deathknight" : (196, 31, 59),
         "Druid" : (255, 125, 10),
         "Hunter" : (171, 212, 115),
         "Mage" : (64, 199, 235),
